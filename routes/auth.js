@@ -1,10 +1,8 @@
-const { Router } = require("express");
-const router = Router();
-const usersController = require('../controllers/usersController');
-router.get("/getUsers", usersController.index);
-router.get("/getOneUser/:id", usersController.getOne);
-router.put("/updateUser/:id", usersController.update);
-router.post("/createUser", usersController.create);
-router.delete("/deleteUser/:id", usersController.del);
+const {Router} = require ("express")
+const router = Router()
 
-module.exports = router;
+router.post("/login", (req, res)=>{
+    res.status(201).json({msg:"Peticion a auth post"})
+})
+
+module.exports = router; 
