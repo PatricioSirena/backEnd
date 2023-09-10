@@ -1,8 +1,12 @@
-const {Router} = require ("express")
+const { Router } = require("express")
+const { check } = require('express')
 const router = Router()
+const authController = require('../controllers/authController') 
 
-router.post("/login", (req, res)=>{
-    res.status(201).json({msg:"Peticion a auth post"})
-})
+router.post("/login", [
+    check("email", "El email no es valido").isEmail(),
+    check("password", "La contraseña es obligatoria").notEmpty(),
+    validarCampos 
+], authController.login)
 
 module.exports = router; 

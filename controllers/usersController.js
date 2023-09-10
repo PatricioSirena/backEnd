@@ -1,8 +1,7 @@
 const { request, response } = require('express')
 const Usuario = require('../models/usuarios')
 const bcrypt = require('bcrypt')
-const {esAdmin} = require('../helpers/db-validator')
-
+ 
 const index = async (req = request, res = response) => {
     const { desde = 0, limite = 10 } = req.query
     const sentencia = { activo: true }
@@ -29,18 +28,19 @@ const update = async (req = request, res = response) => {
     res.status(201).json({ usuario: usuario, msg: "Usuario actualizado con exito!" })
 }
 const create = async (req = request, res = response) => {
-    const id = req.body.id
-    esAdmin(id)
-    // const { firstName, lastName, email, password } = req.body;
-    // let passEncrip = bcrypt.hashSync(password, 12)
-    // const newUser = new Usuario({ firstName, lastName, email, password: passEncrip })
-    // try {
-    //     await newUser.save()
-    //     return res.status(200).json({ msg: "Usuario creado con exito!" })
-    // } catch (error) {
-    //     return res.json({ error })
-    // }
-    res.send(esAdmin(id))
+    // const id = req.body.id
+    // esAdmin(id)
+    const { firstName, lastName, email, password } = req.body;
+    let passEncrip = bcrypt.hashSync(password, 12)
+    const newUser = new Usuario({ firstName, lastName, email, password: passEncrip })
+    console.log(newUser);
+    try {
+        await newUser.save()
+        return res.status(200).json({ msg: "Usuario creado con exito!" })
+    } catch (error) {
+        return res.json({ error })
+    }
+
 
 }
 const del = async (req = request, res = response) => {
@@ -55,7 +55,7 @@ const del = async (req = request, res = response) => {
 }
 const activeUser = async (req = request, res = response) => {
     const { id } = req.params
-    const urs = await Usuario.findOne({ _id: id })  
+    const urs = await Usuario.findOne({ _id: id })
     if (!urs.activo) {
         const usuario = await Usuario.findByIdAndUpdate(id, { activo: true }, { new: true })
         res.status(201).json({ usuario: usuario, msg: "Usuario actualizado con exito!" })
