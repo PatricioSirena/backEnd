@@ -52,15 +52,30 @@ const del = async (req, res) => {
     console.log(id);
     try {
         await Producto.findByIdAndDelete(id)
-        return res.status(200).json({msg: "Se elimino con éxito el producto"})
+        return res.status(200).json({ msg: "Se elimino con éxito el producto" })
     } catch (error) {
         return res.json({ error });
     }
 }
+
+const search = async (req, res) => {
+    const { busqueda } = req.query
+    let busquedaMin = busqueda.toLowerCase()
+    // let filtro = { likes: { $in: [busqueda, busquedaMin] } }
+    const productos = await Producto.find( )
+    let productosConseguidos = []
+    for (let index = 0; index < productos.length; index++) {
+        console.log(productos[index]);
+        
+    }
+    res.json({ productos })
+}
+
 module.exports = {
     index,
     getOne,
     update,
     create,
-    del
+    del,
+    search
 }
