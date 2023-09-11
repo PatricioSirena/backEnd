@@ -1,19 +1,21 @@
-const Usuario = require('../models/usuarios') // aca importamos nuestro modelo
+const Usuario = require('../models/usuarios');
 
-const esAdmin = async () => {
-    const user = await Usuario.findOne({ _id: id })
+const esAdmin=async(id)=>{
+    const user = await Usuario.findOne({_id:id});
     if (!user.admin) {
-        throw new Error("El usuario no es administrador") // Si el usuario no es admin, manda error
+        throw new Error("El usuario no es administrador");
         // return "El usuario no es administrador"
-    }     
+    }
+
 }
-const usuarioExiste = async (id) => {
-    const existeUsuario = await Usuario.findById(id)
+const usuarioExiste=async(id)=>{
+    const existeUsuario= await Usuario.findById(id);
     if (!existeUsuario) {
         throw new Error(`El id ${id} no corresponde a un usuario registrado`)
     }
+
 }
-module.export = {
+module.exports={
     esAdmin,
     usuarioExiste
 }
