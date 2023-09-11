@@ -1,5 +1,5 @@
 
-// test
+// test 1
 
 const bcryt = require('bcrypt');
 const Usuario = require('../models/usuarios');
