@@ -60,15 +60,16 @@ const del = async (req, res) => {
 
 const search = async (req, res) => {
     const { busqueda } = req.query
-    let busquedaMin = busqueda.toLowerCase()
+    let busquedaMin = busqueda.toLowerCase();
     // let filtro = { likes: { $in: [busqueda, busquedaMin] } }
     const productos = await Producto.find( )
-    let productosConseguidos = []
+    let productosconseguidos = []
     for (let index = 0; index < productos.length; index++) {
-        console.log(productos[index]);
-        
+        if ((productos[index].name).toLowerCase().includes(busqueda)) {
+            productosconseguidos = [...productosconseguidos, productos[index]]
+        }        
     }
-    res.json({ productos })
+    res.json({ productosconseguidos })
 }
 
 module.exports = {
