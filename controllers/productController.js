@@ -35,7 +35,7 @@ const update = async (req, res) => {
 
 const create = async (req, res) => {
 
-    let { titulo, precio, texto, categoria, imagen, activo } = req.body.nid
+    let { titulo, precio, texto, categoria, imagen, activo } = req.body.value
     let producto = { titulo, precio, texto, categoria, imagen, activo };
     const newProducto = await new Producto(producto)
     console.log(newProducto);
