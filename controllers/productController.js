@@ -35,8 +35,8 @@ const update = async (req, res) => {
 
 const create = async (req, res) => {
 
-    let { name, description, price, src } = req.body;
-    let producto = { name, description, price, src };
+    let { titulo, precio, texto, categoria, imagen, activo } = req.body;
+    let producto = { titulo, precio, texto, categoria, imagen, activo };
     const newProducto = await new Producto(producto)
     console.log(newProducto);
     try {
