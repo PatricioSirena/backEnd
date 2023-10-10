@@ -8,7 +8,7 @@ const ProductosSchema = Schema({
         required: [true, "El nombre es obligatorio"]
     },
     precio: {
-        type: Number,
+        type: String,
         required: [true, "El precio es obligatorio"]
     },
     texto: {
