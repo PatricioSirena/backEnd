@@ -5,26 +5,27 @@ const { Schema, model } = require('mongoose');
 const ProductosSchema = Schema({
     titulo: {
         type: String,
-        // required: [true, "El nombre es obligatorio"]
+        required: [true, "El nombre es obligatorio"]
     },
     precio: {
         type: Number,
-        // required: [true, "El precio es obligatorio"]
+        required: [true, "El precio es obligatorio"]
     },
     texto: {
         type: String,
-        // required: [true, "La descripción es obligatoria"]
+        required: [true, "La descripción es obligatoria"]
     },
     categoria: {
         type: String,
-        // required: [true, "La categoria es obligatoria"]
+        required: [true, "La categoria es obligatoria"]
     },
     activo: {
         type: Boolean,
+        default: false
     },
     imagen: {
         type: String,
-        // required: [true, "La imagen del producto es obligatoria"]
+        required: [true, "La imagen del producto es obligatoria"]
     },
 
 });

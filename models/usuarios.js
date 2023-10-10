@@ -3,19 +3,15 @@ admin,firstName,lastName,email,password
 */
 const {Schema,model} =require('mongoose');
 const UsuarioSchema = Schema({
-    firstName:{
-        type:String,
-        required:[true, "El nombre es obligatorio"]
-    },
-    lastName:{
+    usuario:{
         type:String,
         required:[true, "El Apellido es obligatorio"]
     },
-    email:{
+    correo:{
         type:String,
         required:[true, "El Email es obligatorio"]
     },
-    password:{
+    contraseña:{
         type:String,
         required:[true, "El Password es obligatorio"]
     },
