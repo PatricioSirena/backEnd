@@ -11,3 +11,5 @@ router.get("/searchProduct",productController.search);
 
 
 module.exports = router
+
+//$ git config -l

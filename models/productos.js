@@ -19,16 +19,16 @@ const ProductosSchema = Schema({
         type: String,
         required: [true, "La categoria es obligatoria"]
     },
-    activo: {
-        type: Boolean,
-        default: false
-    },
     imagen: {
         type: String,
         required: [true, "La imagen del producto es obligatoria"]
     },
-
+   activo: {
+        type: Boolean,
+        default: false
+    }
 });
+
 ProductosSchema.methods.toJSON = function () {
     const { __v, _id, ...producto } = this.toObject();
     producto.id = _id;
