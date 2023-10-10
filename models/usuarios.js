@@ -5,11 +5,11 @@ const {Schema,model} =require('mongoose');
 const UsuarioSchema = Schema({
     usuario:{
         type:String,
-        required:[true, "El Apellido es obligatorio"]
+        required:[true, "El usuario es obligatorio"]
     },
     correo:{
         type:String,
-        required:[true, "El Email es obligatorio"]
+        required:[true, "El correo es obligatorio"]
     },
     password:{
         type:String,
