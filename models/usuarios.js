@@ -11,7 +11,7 @@ const UsuarioSchema = Schema({
         type:String,
         required:[true, "El Email es obligatorio"]
     },
-    contraseña:{
+    password:{
         type:String,
         required:[true, "El Password es obligatorio"]
     },
