@@ -18,10 +18,9 @@ router.put("/updateUser/:id", [
 ], usersController.update);
 
 router.post("/createUser", [
-    check("firstName","El nombre es obligatorio"),
-    check("lastName","El apellido es obligatorio"),
-    check("email","No es un correo válido").isEmail(),
-    check("password","La contraseña debe tener un mímino de 8 caracteres").isLength({min:8}),
+    check("usuario","El nombre es obligatorio"),
+    check("correo","No es un correo válido").isEmail(),
+    check("password","La contraseña es obligatoria"),
     validarCampos
 ], usersController.create);
 router.delete("/deleteUser/:id", [
