@@ -3,18 +3,17 @@ admin,firstName,lastName,email,password
 */
 const { Schema, model } = require('mongoose');
 const UsuarioSchema = Schema({
-    usuario: {
-        type: String,
+    usuario:{
+        type:String,
+        required:[true, "El Apellido es obligatorio"]
     },
-    email:{
+    correo:{
         type:String,
         required:[true, "El Email es obligatorio"]
     },
-    correo: {
-        type: String,
-    },
     password: {
         type: String,
+        required:[true, 'La contraseña es requerida']
     },
     admin: {
         type: Boolean,
