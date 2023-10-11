@@ -2,16 +2,16 @@ const {request,response}=require('express');
 const Usuario = require('../models/usuarios');
 const {esAdmin} = require('../helpers/db-validator');
 const bcrypt = require('bcrypt');
-const  index=async(req = request, res=response)=>{
-  const{desde=0,limite=5}=req.query;
-  const sentencia={activo:true};
-  // let usuarios= await Usuario.find()
-  const [total,usr]= await Promise.all([
-    Usuario.countDocuments(sentencia),
-    Usuario.find(sentencia).skip(desde).limit(limite)
-  ])
-  res.status(200).json({total,usr});
-}
+// const  index=async(req = request, res=response)=>{
+//   const{desde=0,limite=5}=req.query;
+//   const sentencia={activo:true};
+//   // let usuarios= await Usuario.find()
+//   const [total,usr]= await Promise.all([
+//     Usuario.countDocuments(sentencia),
+//     Usuario.find(sentencia).skip(desde).limit(limite)
+//   ])
+//   res.status(200).json({total,usr});
+// }
 const getOne=async(req=request, res=response)=>{
   let {id}=req.params;
   let usuario= await Usuario.findOne({_id:id});
