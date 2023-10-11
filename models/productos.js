@@ -23,7 +23,7 @@ const ProductosSchema = Schema({
         type: String,
         required: [true, "La imagen del producto es obligatoria"]
     },
-   activo: {
+    activo: {
         type: Boolean,
         default: false
     }
