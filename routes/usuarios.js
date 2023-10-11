@@ -21,6 +21,8 @@ router.post("/createUser", [
     check("usuario","El nombre es obligatorio"),
     check("correo","No es un correo válido").isEmail(),
     check("password","La contraseña es obligatoria"),
+    check("admin"),
+    check("activo"),
     validarCampos
 ], usersController.create);
 router.delete("/deleteUser/:id", [
@@ -28,5 +30,5 @@ router.delete("/deleteUser/:id", [
     check("id").custom(usuarioExiste),
     validarCampos
 ], usersController.del);
-// router.put("/activeUser/:id", validarCampos, usersController.activeUser);
+router.put("/activeUser/:id", validarCampos, usersController.activeUser);
 module.exports = router;

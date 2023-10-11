@@ -1,6 +1,3 @@
-/*
-admin,firstName,lastName,email,password
-*/
 const {Schema,model} =require('mongoose');
 const UsuarioSchema = Schema({
     usuario:{

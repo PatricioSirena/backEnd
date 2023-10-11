@@ -1,6 +1,3 @@
-
-// test
-
 const bcryt = require('bcrypt');
 const Usuario = require('../models/usuarios');
 const {generarJWT} =require('../helpers/generar-jwt')

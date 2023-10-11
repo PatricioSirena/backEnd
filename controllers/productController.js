@@ -22,7 +22,7 @@ const getOne = async (req, res) => {
 
 const update = async (req, res) => {
     const { id } = req.params
-    const { name, description, price, src } = req.body
+    const { titulo, precio, texto, categoria, imagen, activo } = req.body
     const productoNew = { name, description, price: Number(price), src }
     console.log(productoNew);
     try {

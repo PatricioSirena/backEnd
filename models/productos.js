@@ -1,6 +1,3 @@
-/*
- "name" "descripction" "price" "src"
- */
 const { Schema, model } = require('mongoose');
 const ProductosSchema = Schema({
     titulo: {
