@@ -28,5 +28,5 @@ router.delete("/deleteUser/:id", [
     check("id").custom(usuarioExiste),
     validarCampos
 ], usersController.del);
-router.put("/activeUser/:id", validarCampos, usersController.activeUser);
+// router.put("/activeUser/:id", validarCampos, usersController.activeUser);
 module.exports = router;
