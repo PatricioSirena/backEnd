@@ -21,7 +21,7 @@ const UsuarioSchema = Schema({
     },
     activo:{
         type:Boolean,
-        default:true
+        default:false
     }
 })
 UsuarioSchema.methods.toJSON = function () {
