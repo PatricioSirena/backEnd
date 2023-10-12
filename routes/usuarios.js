@@ -21,8 +21,6 @@ router.post("/createUser", [
     check("usuario","El nombre es obligatorio"),
     check("correo","No es un correo válido").isEmail(),
     check("password","La contraseña es obligatoria"),
-    check("admin"),
-    check("activo"),
     validarCampos
 ], usersController.create);
 router.delete("/deleteUser/:id", [
