@@ -14,11 +14,11 @@ const UsuarioSchema = Schema({
     },
     admin:{
         type:Boolean,
-        default:false
+        required:[true]
     },
     activo:{
         type:Boolean,
-        default:false
+        required:[true]
     }
 })
 UsuarioSchema.methods.toJSON = function () {
