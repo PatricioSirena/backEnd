@@ -53,22 +53,22 @@ const del=async(req=request, res=response)=>{
 
   res.status(200).json({msg:"El usuario pasó a estar inactivo",data:usuaBorrado})
 }
-const activeUser=async(req=request, res=response)=>{
-  const {id} =req.params;
-  const urs = await Usuario.findOne({_id:id});
-  if(!urs.activo){
-    const usuario = await Usuario.findByIdAndUpdate(id,{activo:true},{new:true});
-    res.status(201).json({usuario:usuario,msg:"Usuario actualizo con éxito!"})
-  }else{
-    const usuario = await Usuario.findByIdAndUpdate(id,{activo:false},{new:true});
-    res.status(201).json({usuario:usuario,msg:"Usuario inactivo!"})
-  }
-}
+// const activeUser=async(req=request, res=response)=>{
+//   const {id} =req.params;
+//   const urs = await Usuario.findOne({_id:id});
+//   if(!urs.activo){
+//     const usuario = await Usuario.findByIdAndUpdate(id,{activo:true},{new:true});
+//     res.status(201).json({usuario:usuario,msg:"Usuario actualizo con éxito!"})
+//   }else{
+//     const usuario = await Usuario.findByIdAndUpdate(id,{activo:false},{new:true});
+//     res.status(201).json({usuario:usuario,msg:"Usuario inactivo!"})
+//   }
+// }
 module.exports={
   index,
   getOne,
   update,
   create,
   del,
-  activeUser
+  // activeUser
 }
