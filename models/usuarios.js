@@ -13,10 +13,12 @@ const UsuarioSchema = Schema({
         required:[true, "El Password es obligatorio"]
     },
     admin:{
-        type:Boolean
+        type:Boolean,
+        required:[true]
     },
     activo:{
-        type:Boolean
+        type:Boolean,
+        required:[true]
     }
 })
 UsuarioSchema.methods.toJSON = function () {
