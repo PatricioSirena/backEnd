@@ -4,7 +4,7 @@ const {esAdmin} = require('../helpers/db-validator');
 const bcrypt = require('bcrypt');
 const  index=async(req = request, res=response)=>{
   const{desde=0,limite=5}=req.query;
-  const sentencia={activo:true};
+  const sentencia={activo};
   // let usuarios= await Usuario.find()
   const [total,usr]= await Promise.all([
     Usuario.countDocuments(sentencia),
@@ -19,7 +19,7 @@ const getOne=async(req=request, res=response)=>{
 }
 const update=async(req=request, res=response)=>{
   const {id} =req.params;
-  const {password,email, ...resto}=req.body;
+  const {password,correo, ...resto}=req.body;
   if (password) {
     let passEncrip = bcrypt.hashSync(password,12);
     resto.password= passEncrip;
