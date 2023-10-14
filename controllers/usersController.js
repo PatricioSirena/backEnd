@@ -31,9 +31,9 @@ const update=async(req=request, res=response)=>{
 const create=async(req=request, res=response)=>{
   // const id = req.body.id;
   // esAdmin(id)
-  const {usuario,correo,password} = req.body;
+  const {correo,password} = req.body;
   let passEncrip = bcrypt.hashSync(password,12);
-  const newUser = new Usuario({usuario,correo,password:passEncrip})
+  const newUser = new Usuario({correo,password:passEncrip})
   console.log(newUser);
   try {
     await newUser.save();
@@ -43,16 +43,16 @@ const create=async(req=request, res=response)=>{
   }
   
 }
-const del=async(req=request, res=response)=>{
-  const {id} =req.params;
-  const usuario = await Usuario.findById(id);
-  if(!usuario.activo){
-    return res.json({mgs:"El usuario está inactivo!"})
-  }
-  const usuaBorrado = await Usuario.findByIdAndUpdate(id,{activo:false},{new:true});
+// const del=async(req=request, res=response)=>{
+//   const {id} =req.params;
+//   const usuario = await Usuario.findById(id);
+//   if(!usuario.activo){
+//     return res.json({mgs:"El usuario está inactivo!"})
+//   }
+//   const usuaBorrado = await Usuario.findByIdAndUpdate(id,{activo:false},{new:true});
 
-  res.status(200).json({msg:"El usuario pasó a estar inactivo",data:usuaBorrado})
-}
+//   res.status(200).json({msg:"El usuario pasó a estar inactivo",data:usuaBorrado})
+// }
 const activeUser=async(req=request, res=response)=>{
   const {id} =req.params;
   const urs = await Usuario.findOne({_id:id});
@@ -69,6 +69,6 @@ module.exports={
   getOne,
   update,
   create,
-  del,
+  // del,
   activeUser
 }
