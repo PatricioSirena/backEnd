@@ -23,10 +23,10 @@ router.post("/createUser", [
     check("password","La contraseña es obligatoria"),
     validarCampos
 ], usersController.create);
-router.delete("/deleteUser/:id", [
-    check("id", "No es un id válido!").isMongoId(),
-    check("id").custom(usuarioExiste),
-    validarCampos
-], usersController.del);
-// router.put("/activeUser/:id", validarCampos, usersController.activeUser);
+// router.delete("/deleteUser/:id", [
+//     check("id", "No es un id válido!").isMongoId(),
+//     check("id").custom(usuarioExiste),
+//     validarCampos
+// ], usersController.del);
+router.put("/activeUser/:id", validarCampos, usersController.activeUser);
 module.exports = router;
