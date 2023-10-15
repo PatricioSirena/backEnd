@@ -18,7 +18,8 @@ router.put("/updateUser/:id", [
 ], usersController.update);
 
 router.post("/createUser", [
-    // check("usuario","El nombre es obligatorio"),
+    check("nombre","El nombre es obligatorio"),
+    check("apellido","El nombre es obligatorio"),
     check("correo","No es un correo válido").isEmail(),
     check("password","La contraseña es obligatoria"),
     validarCampos

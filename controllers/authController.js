@@ -2,9 +2,9 @@ const bcryt = require('bcrypt');
 const Usuario = require('../models/usuarios');
 const {generarJWT} =require('../helpers/generar-jwt')
 const login=async(req,res)=>{
-    let {email,password}=req.body;
+    let {correo,password}=req.body;
     try {
-        const user = await Usuario.findOne({email:email})
+        const user = await Usuario.findOne({correo:correo})
         console.log(user);
         if(user){
             if(bcryt.compareSync(password,user.password)){

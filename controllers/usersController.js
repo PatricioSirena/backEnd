@@ -45,9 +45,9 @@ const update=async(req=request, res=response)=>{
 const create=async(req=request, res=response)=>{
   // const id = req.body.id;
   // esAdmin(id)
-  const {correo,password} = req.body;
+  const {nombre,apellido,correo,password} = req.body;
   let passEncrip = bcrypt.hashSync(password,12);
-  const newUser = new Usuario({correo,password:passEncrip})
+  const newUser = new Usuario({nombre,apellido,correo,password:passEncrip})
   console.log(newUser);
   try {
     await newUser.save();
