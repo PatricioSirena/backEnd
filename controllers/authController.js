@@ -7,7 +7,7 @@ const login=async(req,res)=>{
         const user = await Usuario.findOne({correo:correo})
         console.log(user);
         if(user){
-            if(bcryt.compareSync(password,user.password)){
+            if(bcryt.compareSync(user.password,password)){
                 console.log("Usuario autenticado!");
                 const token = await generarJWT(user.uid);
                 return res.status(200).json({

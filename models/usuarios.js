@@ -18,7 +18,7 @@ const UsuarioSchema = Schema({
     },
     password:{
         type:String,
-        required:[true, "El Password es obligatorio"]
+        required:[true, "La contraseña es obligatorio"]
     },
     admin:{
         type:Boolean,
