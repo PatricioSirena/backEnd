@@ -6,7 +6,7 @@ const router = Router();
 
 router.post("/login",[
     check("correo", "el correo no es válido").isEmail(),
-    check("password","La conreaseña es obligatoria").notEmpty(),
+    check("password","La contraseña es obligatoria").notEmpty(),
     validarCampos
 ],authController.login);
 
