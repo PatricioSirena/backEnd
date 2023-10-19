@@ -2,7 +2,7 @@ const bcryt = require('bcrypt');
 const Usuario = require('../models/usuarios');
 const {generarJWT} =require('../helpers/generar-jwt')
 const login=async(req,res)=>{
-    let {correo,password}=req.body;
+    const {correo,password}=req.body;
     try {
         const user = await Usuario.findOne({correo:correo})
         console.log(user);

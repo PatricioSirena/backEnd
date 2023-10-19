@@ -33,6 +33,6 @@ router.post("/createUser", [
 //     validarCampos
 // ], usersController.del);
 
-router.put("/activeUser/:id", validarCampos, usersController.activeUser);
+// router.put("/activeUser/:id", validarCampos, usersController.activeUser);
 
 module.exports = router;
