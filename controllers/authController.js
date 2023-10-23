@@ -5,7 +5,7 @@ const login=async(req,res)=>{
     let {correo,password}=req.body;
     console.log(correo,password);
     try {
-        const user = await Usuario.findOne({correo:correo})
+        const user = await Usuario.findOne({correo})
         console.log(user);
         if(user){
             if(bcryt.compareSync(password,user.password)){
