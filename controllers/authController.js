@@ -1,19 +1,17 @@
 const bcrypt = require('bcrypt');
 const Usuario = require('../models/usuarios');
-// const {generarJWT} =require('../helpers/generar-jwt')
+const {generarJWT} =require('../helpers/generar-jwt')
 const login=async(req,res)=>{
     let {password,correo}=req.body;
-    console.log(correo,password);
     try {
         const user = await Usuario.findOne({correo:correo})
-        console.log(user);
         if(user){
             if(bcrypt.compareSync(password,user.password)){
                 console.log("Usuario autenticado!");
-                // const token = await generarJWT(user.uid);
+                const token = await generarJWT(user.uid);
                 return res.status(200).json({
-                    user
-                    // token
+                    user,
+                    token
                 })
             }else{
                 return res.status(401).json({msg:"datos incorrectos!"})
