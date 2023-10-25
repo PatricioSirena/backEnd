@@ -5,7 +5,7 @@ const {esAdmin} = require('../helpers/db-validator');
 const bcrypt = require('bcrypt');
 
 const  index=async(req = request, res=response)=>{
-  const{desde=0,limite=50}=req.query;
+  const{desde=0,limite=200}=req.query;
   // const sentencia={activo:true};
   // let usuarios= await Usuario.find()
   const [total,usr]= await Promise.all([
