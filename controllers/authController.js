@@ -3,11 +3,11 @@ const Usuario = require('../models/usuarios');
 const { generarJWT } = require('../helpers/generar-jwt')
 const login = async (req, res) => {
     let { password, correo } = req.body;
+    const datosIncorrectos = true;
+    const usuarioInexistente = true;
+    const contactaAdmin = true;
     try {
         const user = await Usuario.findOne({ correo: correo })
-        const datosIncorrectos = true;
-        const usuarioInexistente = true;
-        const contactaAdmin = true;
         if (user) {
             if (bcrypt.compareSync(password, user.password)) {
                 console.log("Usuario autenticado!");
@@ -17,13 +17,16 @@ const login = async (req, res) => {
                     token
                 })
             } else {
-                return res.status(401).json({ msg: "datos incorrectos!", datosIncorrectos })
+                return res.status(401).json({ msg: "datos incorrectos!"}),
+                datosIncorrectos
             }
         } else {
-            return res.status(404).json({ msg: "Usuario no existe!", usuarioInexistente })
+            return res.status(404).json({msg: "Usuario no existe!"}),
+            usuarioInexistente
         }
     } catch (error) {
-        return res.status(500).json({ msg: "Contacta al administrador", contactaAdmin })
+        return res.status(500).json({msg:"Contacta al administrador"}),
+        contactaAdmin
     }
 }
 module.exports = {
