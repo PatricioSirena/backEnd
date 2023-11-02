@@ -6,7 +6,7 @@ const OrderSchema = Schema({
     },
     platos:{
         type: Array,
-        required: [true, "Debe ingresar al menos un plato"]
+        default: []
     },
     pendiente: {
         type: Boolean,
