@@ -3,8 +3,8 @@ const Order = require('../models/order')
 
 const index = async (req, res) => {
     try {
-        const orders = await Order.find();
-        return res.status(200).json({ data: orders })
+        const order = await Order.find();
+        return res.status(200).json({ data: order })
     } catch (error) {
         return res.json({ error })
     }
