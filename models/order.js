@@ -6,7 +6,7 @@ const OrderSchema = Schema({
     // },
     platos:{
         type: Array,
-        default: []
+        default: [{}]
     },
     pendiente: {
         type: Boolean,
