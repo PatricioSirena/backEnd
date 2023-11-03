@@ -22,8 +22,8 @@ const getOne = async (req, res) => {
 
 const update = async (req, res) => {
     const { id } = req.params
-    const { usuario, platos, pendiente, precio } = req.body
-    const orderNew = { usuario, platos, pendiente, precio }
+    const { platos, pendiente, precioTotal } = req.body
+    const orderNew = { platos, pendiente, precioTotal }
     console.log(orderNew);
     try {
         let newOrder = await Order.findByIdAndUpdate(id, orderNew, { new: true })
@@ -35,8 +35,8 @@ const update = async (req, res) => {
 
 const create = async (req, res) => {
 
-    let { usuario, platos, pendiente, precio } = req.body
-    let order = { usuario, platos, pendiente, precio };
+    let { platos, pendiente, precioTotal } = req.body
+    let order = { platos, pendiente, precioTotal };
     const newOrder = await new Order(order)
     console.log(newOrder);
     try {
