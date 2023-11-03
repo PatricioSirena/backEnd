@@ -3,8 +3,8 @@ const Order = require('../models/order')
 
 const index = async (req, res) => {
     try {
-        const order = await Order.find();
-        return res.status(200).json({ data: order })
+        const orders = await Order.find();
+        return res.status(200).json({ data: orders })
     } catch (error) {
         return res.json({ error })
     }
@@ -22,8 +22,8 @@ const getOne = async (req, res) => {
 
 const update = async (req, res) => {
     const { id } = req.params
-    const { platos, pendiente, precioTotal } = req.body
-    const orderNew = { platos, pendiente, precioTotal }
+    const { platos, pendiente, precio } = req.body
+    const orderNew = { platos, pendiente, precio }
     console.log(orderNew);
     try {
         let newOrder = await Order.findByIdAndUpdate(id, orderNew, { new: true })
@@ -35,8 +35,8 @@ const update = async (req, res) => {
 
 const create = async (req, res) => {
 
-    let { platos, pendiente, precioTotal } = req.body
-    let order = { platos, pendiente, precioTotal };
+    let { platos, pendiente, precio } = req.body
+    let order = { platos, pendiente, precio };
     const newOrder = await new Order(order)
     console.log(newOrder);
     try {

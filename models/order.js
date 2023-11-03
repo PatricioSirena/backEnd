@@ -5,16 +5,14 @@ const OrderSchema = Schema({
     //     required:[true, "El usuario es obligatorio"]
     // },
     platos:{
-            id: {type: Number},
-            precio: {type: Number},
-            quantity: {type: Number},
-            titulo: {type: String}
+        type: Array,
+        default: []
     },
     pendiente: {
         type: Boolean,
         default: true
     },
-    precioTotal: {
+    precio: {
         type: String,
         required: [true, "El precio es requerido"]
     }
