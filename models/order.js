@@ -13,7 +13,7 @@ const OrderSchema = Schema({
         default: true
     },
     precio: {
-        type: Number,
+        type: String,
         required: [true, "El precio es requerido"]
     }
 })
