@@ -19,7 +19,7 @@ const OrdersSchema = Schema({
     }
 })
 OrdersSchema.methods.toJSON = function () {
-    const {_id,...order} = this.toObject();
+    const {__v,_id,...order} = this.toObject();
     order.id = _id;
     return order
 };
