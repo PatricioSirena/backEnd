@@ -1,25 +1,26 @@
-const {Schema,model} =require('mongoose');
-const OrderSchema = Schema({
+const {Schema,model} = require('mongoose');
+
+const OrdersSchema = Schema({
     // usuario:{
     //     type:String,
     //     required:[true, "El usuario es obligatorio"]
     // },
-    platos:{
-        type: Array,
-        default: []
-    },
     pendiente: {
         type: Boolean,
         default: true
+    },
+    platos:{
+        type: String,
+        required:[true,"Los platos son requeridos"]
     },
     precio: {
         type: String,
         required: [true, "El precio es requerido"]
     }
 })
-OrderSchema.methods.toJSON = function () {
+OrdersSchema.methods.toJSON = function () {
     const {_id,...order} = this.toObject();
     order.id = _id;
     return order
 };
-module.exports = model("Order",OrderSchema);
+module.exports = model("Order",OrdersSchema);
