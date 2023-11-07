@@ -51,7 +51,7 @@ const del = async (req, res) => {
     const { id } = req.params
     console.log(id);
     try {
-        await Producto.findByIdAndDelete(id)
+        await Order.findByIdAndDelete(id)
         return res.status(200).json({ msg: "Se elimino con éxito el pedido" })
     } catch (error) {
         return res.json({ error });
