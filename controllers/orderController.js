@@ -47,9 +47,20 @@ const create = async (req, res) => {
     }
 }
 
+const del = async (req, res) => {
+    const { id } = req.params
+    console.log(id);
+    try {
+        await Producto.findByIdAndDelete(id)
+        return res.status(200).json({ msg: "Se elimino con éxito el pedido" })
+    } catch (error) {
+        return res.json({ error });
+    }
+}
 module.exports = {
     index,
     getOne,
     update,
-    create
+    create,
+    del
 }
