@@ -3,7 +3,7 @@ const {Schema,model} = require('mongoose');
 const OrdersSchema = Schema({
     // usuario:{
     //     type:String,
-    //     required:[true, "El usuario es obligatorio"]
+    //     required:[true, "El usuario es requerido"]
     // },
     pendiente: {
         type: Boolean,
