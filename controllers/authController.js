@@ -4,7 +4,7 @@ const { generarJWT } = require('../helpers/generar-jwt')
 const login = async (req, res) => {
     let { password, correo } = req.body;
     try {
-        const user = await Usuario.findOne({ correo: correo })
+        const user = await Usuario.find({ correo: correo })
         if (user) {
             if (bcrypt.compareSync(password, user.password)) {
                 console.log("Usuario autenticado!");
