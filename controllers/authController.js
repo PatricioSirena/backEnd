@@ -8,10 +8,10 @@ const login = async (req, res) => {
         if (user) {
             if (bcrypt.compareSync(password, user.password)) {
                 console.log("Usuario autenticado!");
-                // const token = await generarJWT(user.uid);
+                const token = await generarJWT(user.uid);
                 return res.status(200).json({
-                    user
-                    // token
+                    user,
+                    token
                 })
             } else {
                 return res.status(401).json({ msg: "datos incorrectos!" })
