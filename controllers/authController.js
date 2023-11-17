@@ -2,9 +2,9 @@ const bcrypt = require('bcrypt');
 const Usuario = require('../models/usuarios');
 const { generarJWT } = require('../helpers/generar-jwt')
 const login = async (req, res) => {
-    let { correo, password } = req.body;
+    let { password, correo } = req.body;
     try {
-        const user = await Usuario.findOne({ correo })
+        const user = await Usuario.findOne({ correo: correo })
         if (user) {
             if (bcrypt.compareSync(password, user.password)) {
                 console.log("Usuario autenticado!");
